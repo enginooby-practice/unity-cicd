@@ -14,12 +14,19 @@ steps:
 - task: CopyFiles@2
   inputs:
     sourceFolder: '$(Agent.WorkFolder)\unity\unity-cicd\Library'
-    contents: '**' # all
+    contents: '**' # copies all files in the specified source folder and all files in all sub-folders
     targetFolder: '$(Build.Repository.LocalPath)\Library'
     overWrite: true # Optional
     #cleanTargetFolder: false # Optional
     #flattenFolders: false # Optional
     #preserveTimestamp: false # Optional
+
+# unity PC build
+- task: UnityBuildTask@3
+  inputs:
+    buildTarget: 'WebGL'
+    outputPath: '$(Build.BinariesDirectory)'
+    outputFileName: 'unity-cicd'
 
 ###
 
@@ -38,10 +45,5 @@ steps:
 #   inputs:
 #     script: 'if EXIST "$(Build.BinariesDirectory)\Library\" move "$(Build.BinariesDirectory)\Library" "$(Build.Repository.LocalPath)\Library"'
 
-# # unity PC build
-# - task: UnityBuildTask@3
-#   inputs:
-#     buildTarget: 'WebGL'
-#     outputPath: '$(Build.BinariesDirectory)\Build'
-#     outputFileName: 'unity-cicd'
+
     
