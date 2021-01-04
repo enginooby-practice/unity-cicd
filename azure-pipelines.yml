@@ -24,9 +24,11 @@ steps:
 # unity PC build
 - task: UnityBuildTask@3
   inputs:
-    unityProjectPath: '$(Agent.WorkFolder)\unity\unity-cicd'
     buildTarget: 'WebGL'
-    outputPath: '$(Build.BinariesDirectory)'
+    #unityProjectPath: '$(Agent.WorkFolder)\unity\unity-cicd'
+    # outputPath: '$(Build.BinariesDirectory)'
+    unityProjectPath: 'C:\Users\Administrator\projects\unity\unity-cicd'
+    outputPath: 'C:\Users\Administrator\projects\unity-build'
     outputFileName: 'unity-cicd'
 
 ###
