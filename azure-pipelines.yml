@@ -15,7 +15,7 @@ steps:
   inputs:
     sourceFolder: '$(Agent.WorkFolder)\unity\unity-cicd\Library'
     contents: '**' # all
-    targetFolder: '$(Build.Repository.LocalPath)'
+    targetFolder: '$(Build.Repository.LocalPath)\Library'
     overWrite: true # Optional
     #cleanTargetFolder: false # Optional
     #flattenFolders: false # Optional
