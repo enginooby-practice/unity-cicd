@@ -11,19 +11,20 @@ steps:
       echo $(Agent.WorkFolder) 
 
 # copy original project library to binary directory to build (s)
-- task: CopyFiles@2
-  inputs:
-    sourceFolder: '$(Agent.WorkFolder)\unity\unity-cicd\Library'
-    contents: '**' # copies all files in the specified source folder and all files in all sub-folders
-    targetFolder: '$(Build.Repository.LocalPath)\Library'
-    overWrite: true # Optional
-    #cleanTargetFolder: false # Optional
-    #flattenFolders: false # Optional
-    #preserveTimestamp: false # Optional
+# - task: CopyFiles@2
+#   inputs:
+#     sourceFolder: '$(Agent.WorkFolder)\unity\unity-cicd\Library'
+#     contents: '**' # copies all files in the specified source folder and all files in all sub-folders
+#     targetFolder: '$(Build.Repository.LocalPath)\Library'
+#     overWrite: true # Optional
+#     #cleanTargetFolder: false # Optional
+#     #flattenFolders: false # Optional
+#     #preserveTimestamp: false # Optional
 
 # unity PC build
 - task: UnityBuildTask@3
   inputs:
+    unityProjectPath: '$(Agent.WorkFolder)\unity\unity-cicd'
     buildTarget: 'WebGL'
     outputPath: '$(Build.BinariesDirectory)'
     outputFileName: 'unity-cicd'
