@@ -10,10 +10,10 @@ steps:
 - script: |
       echo $(Agent.WorkFolder) 
 
-# copy original project to binary directory to build (s)
+# copy original project library to binary directory to build (s)
 - task: CopyFiles@2
   inputs:
-    sourceFolder: '$(Agent.WorkFolder)\unity\unity-cicd'
+    sourceFolder: '$(Agent.WorkFolder)\unity\unity-cicd\Library'
     contents: '**' # all
     targetFolder: '$(Build.Repository.LocalPath)'
     overWrite: true # Optional
