@@ -15,7 +15,7 @@ steps:
   inputs:
     sourceFolder: '$(Agent.WorkFolder)\unity\unity-cicd'
     contents: '**' # all
-    targetFolder: '$(Build.BinariesDirectory)'
+    targetFolder: '$(Build.Repository.LocalPath)'
     overWrite: true # Optional
     #cleanTargetFolder: false # Optional
     #flattenFolders: false # Optional
