@@ -10,6 +10,17 @@ steps:
 - script: |
       echo $(Agent.WorkFolder) 
 
+# copy original project to binary directory to build (s)
+- task: CopyFiles@2
+  inputs:
+    sourceFolder: '$(Agent.WorkFolder)\unity\unity-cicd'
+    contents: '**' # all
+    targetFolder: '$(Build.BinariesDirectory)'
+    overWrite: true # Optional
+    #cleanTargetFolder: false # Optional
+    #flattenFolders: false # Optional
+    #preserveTimestamp: false # Optional
+
 ###
 
 # # cleanup for unity build
